@@ -10,7 +10,7 @@ from gpiozero import Button
 from signal import pause
 from time import sleep
 
-robot = Robot(left=(7, 8), right=(9,10))
+robot = Robot(left=(10, 9), right=(8, 7))
 red = LED(27)
 blue = LED(22)
 button = Button(17)
@@ -25,6 +25,8 @@ def barking():
 red.on()
 blue.on()
 pygame.mixer.init()
+randomfile = ''
+wooffile = ''
 file = '/home/pi/K9audio/i-am-k9-mk-3.wav'
 bark = Sound(file)
 bark.play()
@@ -43,6 +45,9 @@ except RuntimeError:
 
 wii.led = 1
 blue.on()
+yesfile = '/home/pi/K9audio/affirmative.wav'
+yes = Sound(yesfile)
+yes.play()
 
 wii.rpt_mode = cwiid.RPT_BTN
 
